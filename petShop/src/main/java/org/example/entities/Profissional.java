@@ -1,20 +1,23 @@
 package org.example.entities;
 
+import org.example.enuns.Formacao;
 import org.example.enuns.TipoProfissional;
 
 public abstract class Profissional {
-    private String nome;
-    private String cpf;
-    private String idade;
-    private String telefone;
-    private TipoProfissional tipoProfissional;
+    protected String nome;
+    protected String cpf;
+    protected String idade;
+    protected String telefone;
+    protected TipoProfissional tipoProfissional;
+    protected Formacao formacao;
 
-    public Profissional(String nome, TipoProfissional tipoProfissional, String telefone, String idade, String cpf) {
+    public Profissional(String nome, TipoProfissional tipoProfissional, String telefone, String idade, String cpf, Formacao formacao) {
         this.nome = nome;
         this.tipoProfissional = tipoProfissional;
         this.telefone = telefone;
         this.idade = idade;
         this.cpf = cpf;
+        this.formacao = formacao;
     }
 
     public String getTelefone() {
@@ -55,5 +58,13 @@ public abstract class Profissional {
 
     public void setIdade(String idade) {
         this.idade = idade;
+    }
+
+    public Formacao getFormacao() {
+        return formacao;
+    }
+
+    public void setFormacao(Formacao formacao) {
+        this.formacao = formacao;
     }
 }
