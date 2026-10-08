@@ -8,7 +8,7 @@ public class Cirurgiao extends Profissional implements ContratoProfissionalInter
 
     private String crmv;
 
-    public Cirurgiao(String nome, TipoProfissional tipoProfissional, String telefone, String idade, String cpf, Formacao formacao,  String crmv) {
+    public Cirurgiao(String nome, TipoProfissional tipoProfissional, String telefone, Integer idade, String cpf, Formacao formacao,  String crmv) {
         super(nome, tipoProfissional, telefone, idade, cpf, validaFormacaoCirurgiao(formacao));
         this.crmv = crmv;
     }

@@ -6,12 +6,12 @@ import org.example.enuns.TipoProfissional;
 public abstract class Profissional {
     protected String nome;
     protected String cpf;
-    protected String idade;
+    protected Integer idade;
     protected String telefone;
     protected TipoProfissional tipoProfissional;
     protected Formacao formacao;
 
-    public Profissional(String nome, TipoProfissional tipoProfissional, String telefone, String idade, String cpf, Formacao formacao) {
+    public Profissional(String nome, TipoProfissional tipoProfissional, String telefone, Integer idade, String cpf, Formacao formacao) {
         this.nome = nome;
         this.tipoProfissional = tipoProfissional;
         this.telefone = telefone;
@@ -52,11 +52,11 @@ public abstract class Profissional {
         this.cpf = cpf;
     }
 
-    public String getIdade() {
+    public Integer getIdade() {
         return idade;
     }
 
-    public void setIdade(String idade) {
+    public void setIdade(Integer idade) {
         this.idade = idade;
     }
 
