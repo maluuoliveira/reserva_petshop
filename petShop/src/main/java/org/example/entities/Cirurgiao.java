@@ -39,6 +39,7 @@ public class Cirurgiao extends Profissional implements ContratoProfissionalInter
     }
 
     public void setCrmv(String crmv) {
+        verificaCrmvInvalido(crmv);
         this.crmv = crmv;
     }
 }
