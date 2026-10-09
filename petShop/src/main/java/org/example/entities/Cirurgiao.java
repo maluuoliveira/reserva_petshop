@@ -10,6 +10,7 @@ public class Cirurgiao extends Profissional implements ContratoProfissionalInter
 
     public Cirurgiao(String nome, TipoProfissional tipoProfissional, String telefone, Integer idade, String cpf, Formacao formacao,  String crmv) {
         super(nome, tipoProfissional, telefone, idade, cpf, validaFormacaoCirurgiao(formacao));
+        verificaCrmvInvalido(crmv);
         this.crmv = crmv;
     }
 
@@ -26,6 +27,10 @@ public class Cirurgiao extends Profissional implements ContratoProfissionalInter
             );
         }
         return formacao;
+    }
+
+    private void verificaCrmvInvalido(String crmv) {
+         if (crmv == null || crmv.isBlank()) throw new IllegalArgumentException("CRMV é obrigatório");
     }
 
     /// Getters e Setters

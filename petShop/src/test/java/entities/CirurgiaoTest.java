@@ -52,4 +52,19 @@ public class CirurgiaoTest {
                 cirurgiao.validaFormacao(Formacao.MEDICINA_VETERINARIA)
         );
     }
+
+    @Test
+    public void crmvInvalido (){
+        assertThrows(IllegalArgumentException.class, () ->
+                new Cirurgiao(
+                        "Nome",
+                        TipoProfissional.CIRURGIAO,
+                        "35999772621",
+                        25,
+                        "16572027635",
+                        Formacao.MEDICINA_VETERINARIA,
+                        null
+                )
+        );
+    }
 }
