@@ -67,4 +67,15 @@ public class CirurgiaoTest {
                 )
         );
     }
+
+    @Test
+    public void buscaCrmvCirurgiao (){
+        assertEquals("123", cirurgiao.getCrmv());
+    }
+
+    @Test
+    public void setCrmvCirurgiao(){
+        cirurgiao.setCrmv("22");
+        assertEquals("22", cirurgiao.getCrmv());
+    }
 }
