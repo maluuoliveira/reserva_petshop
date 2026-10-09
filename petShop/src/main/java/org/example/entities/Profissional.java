@@ -3,18 +3,22 @@ package org.example.entities;
 import org.example.enuns.Formacao;
 import org.example.enuns.TipoProfissional;
 
+import java.math.BigDecimal;
+
 public abstract class Profissional {
     protected String nome;
     protected String cpf;
     protected Integer idade;
     protected String telefone;
+    protected BigDecimal salario;
     protected TipoProfissional tipoProfissional;
     protected Formacao formacao;
 
-    public Profissional(String nome, TipoProfissional tipoProfissional, String telefone, Integer idade, String cpf, Formacao formacao) {
+    public Profissional(String nome, TipoProfissional tipoProfissional, String telefone, BigDecimal salario, Integer idade, String cpf, Formacao formacao) {
         this.nome = nome;
         this.tipoProfissional = tipoProfissional;
         this.telefone = telefone;
+        this.salario = salario;
         this.idade = idade;
         this.cpf = cpf;
         this.formacao = formacao;
@@ -27,6 +31,8 @@ public abstract class Profissional {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    public BigDecimal getSalario() { return salario;}
 
     public TipoProfissional getTipoProfissional() {
         return tipoProfissional;
