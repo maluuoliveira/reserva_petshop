@@ -2,7 +2,6 @@ package org.example.enuns;
 
 public enum TipoProfissional {
     RECEPCIONISTA,
-    CIRURGIAO,
-    CLINICO_GERAL,
+    VETERINARIO,
     SERVICOS_GERAIS
 }

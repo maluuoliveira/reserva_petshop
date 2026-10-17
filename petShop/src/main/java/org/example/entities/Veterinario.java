@@ -1,19 +1,23 @@
 package org.example.entities;
 
+import org.example.enuns.Especializacao;
 import org.example.interfaces.profissional.ContratoProfissionalFormadoInterface;
 import org.example.enuns.Formacao;
 import org.example.enuns.TipoProfissional;
 
 import java.math.BigDecimal;
 
-public class Cirurgiao extends Profissional implements ContratoProfissionalFormadoInterface {
+public class Veterinario extends Profissional implements ContratoProfissionalFormadoInterface {
 
     private String crmv;
+    private Especializacao especializacao;
 
-    public Cirurgiao(String nome, TipoProfissional tipoProfissional, String telefone, BigDecimal salario, Integer idade, String cpf, Formacao formacao, String crmv) {
+    public Veterinario(String nome, TipoProfissional tipoProfissional, String telefone, BigDecimal salario,
+                       Integer idade, String cpf, Formacao formacao, String crmv, Especializacao especializacao) {
         super(nome, tipoProfissional, telefone, salario, idade, cpf, validaFormacaoCirurgiao(formacao));
         verificaCrmvInvalido(crmv);
         this.crmv = crmv;
+        this.especializacao = especializacao;
     }
 
     @Override
@@ -23,9 +27,10 @@ public class Cirurgiao extends Profissional implements ContratoProfissionalForma
 
     private static Formacao validaFormacaoCirurgiao(Formacao formacao) {
         if (!Formacao.MEDICINA_VETERINARIA.equals(formacao)) {
+            System.out.println("Não é possivel cadastrar um veterinário sem formação em " + Formacao.MEDICINA_VETERINARIA.name());
             throw new
                 IllegalArgumentException(
-                        "Não é possivel cadastrar um cirugião sem formação em " + Formacao.MEDICINA_VETERINARIA.name()
+                        "Não é possivel cadastrar um veterinário sem formação em " + Formacao.MEDICINA_VETERINARIA.name()
             );
         }
         return formacao;
@@ -43,5 +48,13 @@ public class Cirurgiao extends Profissional implements ContratoProfissionalForma
     public void setCrmv(String crmv) {
         verificaCrmvInvalido(crmv);
         this.crmv = crmv;
+    }
+
+    public Especializacao getEspecializacao() {
+        return especializacao;
+    }
+
+    public void setEspecializacao(Especializacao especializacao) {
+        this.especializacao = especializacao;
     }
 }
