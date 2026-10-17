@@ -1,12 +1,12 @@
 package org.example.entities;
 
-import org.example.interfaces.ContratoProfissionalInterface;
+import org.example.interfaces.profissional.ContratoProfissionalFormadoInterface;
 import org.example.enuns.Formacao;
 import org.example.enuns.TipoProfissional;
 
 import java.math.BigDecimal;
 
-public class Cirurgiao extends Profissional implements ContratoProfissionalInterface {
+public class Cirurgiao extends Profissional implements ContratoProfissionalFormadoInterface {
 
     private String crmv;
 
