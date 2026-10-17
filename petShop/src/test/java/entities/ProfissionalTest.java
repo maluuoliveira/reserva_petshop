@@ -34,7 +34,7 @@ public class ProfissionalTest {
     void deveAumentarSalarioQuandoNovoSalarioForMaior() {
         Profissional profissional = baseProfissional;
 
-        profissional.reajusteSalarial(new BigDecimal("2500.00"));
+        profissional.definicaoSalarial(new BigDecimal("2500.00"));
 
         assertEquals(
                 0,
@@ -47,7 +47,7 @@ public class ProfissionalTest {
     void deveReduzirSalarioQuandoNovoSalarioForMenor() {
         Profissional profissional = baseProfissional;
 
-        profissional.reajusteSalarial(new BigDecimal("1800.00"));
+        profissional.definicaoSalarial(new BigDecimal("1800.00"));
 
         assertEquals(
                 0,
@@ -60,7 +60,7 @@ public class ProfissionalTest {
     void naoDeveAlterarSalarioQuandoValoresForemIguais() {
         Profissional profissional = baseProfissional;
 
-        profissional.reajusteSalarial(new BigDecimal("2000.00"));
+        profissional.definicaoSalarial(new BigDecimal("2000.00"));
 
         assertEquals(
                 0,
@@ -75,7 +75,7 @@ public class ProfissionalTest {
 
         IllegalArgumentException excecao = assertThrows(
                 IllegalArgumentException.class,
-                () -> profissional.reajusteSalarial(null)
+                () -> profissional.definicaoSalarial(null)
         );
 
         assertEquals(
@@ -90,7 +90,7 @@ public class ProfissionalTest {
 
         IllegalArgumentException excecao = assertThrows(
                 IllegalArgumentException.class,
-                () -> profissional.reajusteSalarial(
+                () -> profissional.definicaoSalarial(
                         new BigDecimal("1500.00")
                 )
         );

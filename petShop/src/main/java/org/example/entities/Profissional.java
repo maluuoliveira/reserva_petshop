@@ -77,7 +77,7 @@ public abstract class Profissional {
         this.formacao = formacao;
     }
 
-    public void reajusteSalarial (BigDecimal novoSalario) {
+    public void definicaoSalarial (BigDecimal novoSalario) {
         validaSalario(novoSalario);
 
         int comparacao = novoSalario.compareTo(this.salario);
