@@ -14,10 +14,13 @@ public abstract class Profissional {
     protected TipoProfissional tipoProfissional;
     protected Formacao formacao;
 
+    public static final BigDecimal SALARIO_MINIMO = new BigDecimal("1613.00");
+
     public Profissional(String nome, TipoProfissional tipoProfissional, String telefone, BigDecimal salario, Integer idade, String cpf, Formacao formacao) {
         this.nome = nome;
         this.tipoProfissional = tipoProfissional;
         this.telefone = telefone;
+        validaSalario(salario);
         this.salario = salario;
         this.idade = idade;
         this.cpf = cpf;
@@ -72,5 +75,32 @@ public abstract class Profissional {
 
     public void setFormacao(Formacao formacao) {
         this.formacao = formacao;
+    }
+
+    public void reajusteSalarial (BigDecimal novoSalario) {
+        validaSalario(novoSalario);
+
+        int comparacao = novoSalario.compareTo(this.salario);
+
+        if (comparacao > 0) {
+            System.out.println(this.nome + " recebeu um aumento salarial");
+        }else if (comparacao < 0){
+            System.out.println(this.nome + " teve seu salário reduzido");
+        }else{
+            System.out.println(this.nome + " não teve reajuste salarial");
+            return;
+        }
+        this.salario = novoSalario;
+    }
+
+    private void validaSalario (BigDecimal novoSalario) {
+        if (novoSalario == null) {
+            System.out.println("Sálario não pode ser null");
+            throw new IllegalArgumentException("Salario não cadastrado");
+        }
+        if (novoSalario.compareTo(SALARIO_MINIMO) < 0) {
+            System.out.println("O salario não pode ser menor do que o salário minimo.");
+            throw new  IllegalArgumentException("O salario não pode ser menor do que o salário minimo.");
+        }
     }
 }

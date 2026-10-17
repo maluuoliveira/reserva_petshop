@@ -4,12 +4,14 @@ import org.example.interfaces.ContratoProfissionalInterface;
 import org.example.enuns.Formacao;
 import org.example.enuns.TipoProfissional;
 
+import java.math.BigDecimal;
+
 public class Cirurgiao extends Profissional implements ContratoProfissionalInterface {
 
     private String crmv;
 
-    public Cirurgiao(String nome, TipoProfissional tipoProfissional, String telefone, Integer idade, String cpf, Formacao formacao,  String crmv) {
-        super(nome, tipoProfissional, telefone, idade, cpf, validaFormacaoCirurgiao(formacao));
+    public Cirurgiao(String nome, TipoProfissional tipoProfissional, String telefone, BigDecimal salario, Integer idade, String cpf, Formacao formacao, String crmv) {
+        super(nome, tipoProfissional, telefone, salario, idade, cpf, validaFormacaoCirurgiao(formacao));
         verificaCrmvInvalido(crmv);
         this.crmv = crmv;
     }

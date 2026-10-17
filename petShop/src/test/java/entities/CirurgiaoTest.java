@@ -1,6 +1,7 @@
 package entities;
 
 import org.example.entities.Cirurgiao;
+import org.example.entities.Profissional;
 import org.example.enuns.Formacao;
 import org.example.enuns.TipoProfissional;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,6 +19,7 @@ public class CirurgiaoTest {
                 "Nome",
                 TipoProfissional.CIRURGIAO,
                 "35999772621",
+                Profissional.SALARIO_MINIMO,
                 25,
                 "16572027635",
                 Formacao.MEDICINA_VETERINARIA,
@@ -37,6 +39,7 @@ public class CirurgiaoTest {
                         "Nome",
                         TipoProfissional.CIRURGIAO,
                         "35999772621",
+                        Profissional.SALARIO_MINIMO,
                         25,
                         "16572027635",
                         Formacao.ADMINISTRACAO,
@@ -60,6 +63,7 @@ public class CirurgiaoTest {
                         "Nome",
                         TipoProfissional.CIRURGIAO,
                         "35999772621",
+                        Profissional.SALARIO_MINIMO,
                         25,
                         "16572027635",
                         Formacao.MEDICINA_VETERINARIA,
