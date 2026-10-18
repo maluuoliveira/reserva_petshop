@@ -1,5 +1,7 @@
 package org.example.entities;
 
+import org.example.enuns.Especie;
+
 import java.util.List;
 
 public class Tutor {
@@ -11,6 +13,7 @@ public class Tutor {
 
     public Tutor(String nome, String cpf, String email, String telefone, List<Pet> pets) {
         this.nome = nome;
+        validaCPF(cpf);
         this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
@@ -56,4 +59,12 @@ public class Tutor {
     public void setPets(List<Pet> pets) {
         this.pets = pets;
     }
+
+    private void validaCPF(String cpf) {
+        String cpfFormatado = cpf.replace(".",  "").trim();
+        if(cpfFormatado.length() != 11)
+            throw new IllegalArgumentException("É necessário ter 11 dígitos");
+        System.out.println("cpf validado");
+    }
+
 }
