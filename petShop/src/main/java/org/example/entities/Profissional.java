@@ -2,10 +2,11 @@ package org.example.entities;
 
 import org.example.enuns.Formacao;
 import org.example.enuns.TipoProfissional;
+import org.example.interfaces.profissional.ContratoProfissional;
 
 import java.math.BigDecimal;
 
-public abstract class Profissional {
+public abstract class Profissional implements ContratoProfissional {
     protected String nome;
     protected String cpf;
     protected Integer idade;
@@ -77,6 +78,7 @@ public abstract class Profissional {
         this.formacao = formacao;
     }
 
+    @Override
     public void definicaoSalarial (BigDecimal novoSalario) {
         validaSalario(novoSalario);
 

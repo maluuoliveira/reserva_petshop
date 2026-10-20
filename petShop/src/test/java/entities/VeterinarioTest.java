@@ -1,49 +1,52 @@
 package entities;
 
-import org.example.entities.Cirurgiao;
+import org.example.entities.Veterinario;
 import org.example.entities.Profissional;
+import org.example.enuns.Especializacao;
 import org.example.enuns.Formacao;
 import org.example.enuns.TipoProfissional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CirurgiaoTest {
+public class VeterinarioTest {
 
 
-    private Cirurgiao cirurgiao;
+    private Veterinario veterinario;
 
     @BeforeEach
     public void init() {
-        cirurgiao = new Cirurgiao(
+        veterinario = new Veterinario(
                 "Nome",
-                TipoProfissional.CIRURGIAO,
+                TipoProfissional.VETERINARIO,
                 "35999772621",
                 Profissional.SALARIO_MINIMO,
                 25,
                 "16572027635",
                 Formacao.MEDICINA_VETERINARIA,
-                "123"
+                "123",
+                Especializacao.CIRURGIAO
         );
     }
 
     @Test
-    public void createCirurgiao() {
-        assertNotNull(cirurgiao);
+    public void createVeterinario() {
+        assertNotNull(veterinario);
     }
 
     @Test
-    public void createCirurgiaoFormacaoInvalida() {
+    public void createVeterinarioFormacaoInvalida() {
         assertThrows(IllegalArgumentException.class, () ->
-                new Cirurgiao(
+                new Veterinario(
                         "Nome",
-                        TipoProfissional.CIRURGIAO,
+                        TipoProfissional.VETERINARIO,
                         "35999772621",
                         Profissional.SALARIO_MINIMO,
                         25,
                         "16572027635",
                         Formacao.ADMINISTRACAO,
-                        "123"
+                        "123",
+                        null
                 )
         );
     }
@@ -52,34 +55,35 @@ public class CirurgiaoTest {
     public void validaFormacaoMedicinaVeterinaria (){
         assertEquals(
                 Formacao.MEDICINA_VETERINARIA,
-                cirurgiao.validaFormacao(Formacao.MEDICINA_VETERINARIA)
+                veterinario.validaFormacao(Formacao.MEDICINA_VETERINARIA)
         );
     }
 
     @Test
     public void crmvInvalido (){
         assertThrows(IllegalArgumentException.class, () ->
-                new Cirurgiao(
+                new Veterinario(
                         "Nome",
-                        TipoProfissional.CIRURGIAO,
+                        TipoProfissional.VETERINARIO,
                         "35999772621",
                         Profissional.SALARIO_MINIMO,
                         25,
                         "16572027635",
                         Formacao.MEDICINA_VETERINARIA,
-                        null
+                        null,
+                        Especializacao.CIRURGIAO
                 )
         );
     }
 
     @Test
-    public void buscaCrmvCirurgiao (){
-        assertEquals("123", cirurgiao.getCrmv());
+    public void buscaCrmvVeterinario (){
+        assertEquals("123", veterinario.getCrmv());
     }
 
     @Test
-    public void setCrmvCirurgiao(){
-        cirurgiao.setCrmv("22");
-        assertEquals("22", cirurgiao.getCrmv());
+    public void setCrmvVeterinario(){
+        veterinario.setCrmv("22");
+        assertEquals("22", veterinario.getCrmv());
     }
 }

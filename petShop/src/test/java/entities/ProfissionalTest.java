@@ -1,7 +1,8 @@
 package entities;
 
-import org.example.entities.Cirurgiao;
+import org.example.entities.Veterinario;
 import org.example.entities.Profissional;
+import org.example.enuns.Especializacao;
 import org.example.enuns.Formacao;
 import org.example.enuns.TipoProfissional;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,15 +18,16 @@ public class ProfissionalTest {
 
     @BeforeEach
     public void init() {
-        baseProfissional = new Cirurgiao(
+        baseProfissional = new Veterinario(
                 "Nome",
-                TipoProfissional.CIRURGIAO,
+                TipoProfissional.VETERINARIO,
                 "35999772621",
                 new BigDecimal("2000.00"),
                 25,
                 "16572027635",
                 Formacao.MEDICINA_VETERINARIA,
-                "123"
+                "123",
+                Especializacao.CIRURGIAO
         );
     }
 
