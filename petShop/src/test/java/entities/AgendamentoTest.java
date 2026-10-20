@@ -1,38 +1,45 @@
 package entities;
 
+import objetosAuxiliares.Pets;
+import objetosAuxiliares.Profissionais;
+import objetosAuxiliares.Recintos;
+import objetosAuxiliares.Servicos;
 import org.example.entities.*;
 import org.example.enuns.*;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AgendamentoTest {
 
-    Servico servicoCirurgia;
-    Recinto recintoCirurgia;
-    Pet pet;
-    Profissional profissionalCirurgia;
-
-    @BeforeEach
-    public void init (){
-         servicoCirurgia = new Servico(
-                null,
-                null,
-                TipoServico.CIRURGIA,
-                null
-        );
-
-         recintoCirurgia = new Recinto(
-                 TipoRecinto.CIRURGIA,
-                 null
-         );
-
-    }
+    Servico servicoCirurgia = Servicos.servicoCirurgia;
+    Recinto recintoCirurgia = Recintos.recintoCirurgia;
+    Pet outroAnimal = Pets.outroAnimal;
+    Profissional profissionalCirurgia = Profissionais.cirurgiao;
+    Profissional clinicoGeral = Profissionais.clinicoGeral;
 
     @Test
     void realizarAgendamentoCirurgia (){
+        Agendamento agendamentoCirurgia = new Agendamento(
+                servicoCirurgia,
+                recintoCirurgia,
+                profissionalCirurgia,
+                outroAnimal
+        );
+        agendamentoCirurgia.realizarAgendamento(agendamentoCirurgia);
+    }
+
+    @Test
+    void realizarAgendamentoCirurgiaComVetrinarioNaoCirurgiao (){
+        Agendamento agendamentoCirurgia = new Agendamento(
+                servicoCirurgia,
+                recintoCirurgia,
+                clinicoGeral,
+                outroAnimal
+        );
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
+                agendamentoCirurgia.realizarAgendamento(agendamentoCirurgia));
+
+        assertEquals("O veterinário selecionado não é um cirurgião", exception.getMessage());
     }
 }

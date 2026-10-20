@@ -21,7 +21,6 @@ public class Agendamento {
         this.pet = pet;
     }
 
-
     public Pet getPet() {
         return pet;
     }
