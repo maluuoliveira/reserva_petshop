@@ -6,12 +6,5 @@ import org.example.entities.Tutor;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static void main() {
-        Tutor tutor = new Tutor(
-                null,
-                "158.623.046.81",
-                null,
-                null,
-                null
-        );
     }
 }

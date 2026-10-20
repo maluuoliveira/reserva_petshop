@@ -12,8 +12,8 @@ public class Tutor {
     private List<Pet> pets;
 
     public Tutor(String nome, String cpf, String email, String telefone, List<Pet> pets) {
-        this.nome = nome;
         validaCPF(cpf);
+        this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
@@ -33,6 +33,7 @@ public class Tutor {
     }
 
     public void setCpf(String cpf) {
+        validaCPF(cpf);
         this.cpf = cpf;
     }
 
@@ -61,9 +62,9 @@ public class Tutor {
     }
 
     private void validaCPF(String cpf) {
-        String cpfFormatado = cpf.replace(".",  "").trim();
+        String cpfFormatado = cpf.replaceAll("[^0-9]", "").trim();
         if(cpfFormatado.length() != 11)
-            throw new IllegalArgumentException("É necessário ter 11 dígitos");
+            throw new IllegalArgumentException("É necessário ter 11 dígitos numéricos");
         System.out.println("cpf validado");
     }
 
