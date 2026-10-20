@@ -31,14 +31,12 @@ public class AgendamentoTest {
 
     @Test
     void confirmarAgendamentoCirurgiaComVetrinarioNaoCirurgiao (){
-        Agendamento agendamentoCirurgia = new Agendamento(
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> new Agendamento(
                 servicoCirurgia,
                 recintoCirurgia,
                 clinicoGeral,
                 outroAnimal
-        );
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
-                agendamentoCirurgia.confirmarAgendamento(agendamentoCirurgia));
+        ));
 
         assertEquals("O veterinário selecionado não é um cirurgião", exception.getMessage());
     }
