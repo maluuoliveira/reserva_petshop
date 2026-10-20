@@ -13,7 +13,8 @@ public class Pets {
                 null,
                 null,
                 Especie.OUTRO,
-                "MACACO NARIGUDO"
+                "MACACO NARIGUDO",
+                null
     );
 
     public static Pet cachorroBravo = new Pet(
@@ -22,6 +23,7 @@ public class Pets {
                 TemperamentoPetEnum.REATIVO,
                 PortePetEnum.G,
                 Especie.CACHORRO,
+                null,
                 null
     );
 }
