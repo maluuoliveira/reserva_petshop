@@ -15,12 +15,12 @@ public class Agendamento {
     private StatusAgendamento status;
 
     public Agendamento(Servico servico, Recinto recinto, Profissional profissional, Pet pet) {
+        validaAgendamento(servico, profissional, recinto);
         this.servico = servico;
         this.recinto = recinto;
         this.profissional = profissional;
         this.pet = pet;
     }
-
 
     public Pet getPet() {
         return pet;
@@ -66,31 +66,29 @@ public class Agendamento {
         this.servico = servico;
     }
 
-    public void realizarAgendamento (Agendamento agendamento){
-        validaAgendamento(agendamento);
+    public void confirmarAgendamento (Agendamento agendamento){
+        validaAgendamento(agendamento.getServico(), agendamento.getProfissional(), agendamento.getRecinto());
+        this.status = StatusAgendamento.MARCADO;
+        this.inicio = LocalDateTime.now();
     }
 
-    public void validaAgendamento (Agendamento agendamento){
+    public void validaAgendamento (Servico servico, Profissional profissional, Recinto recinto){
 
-        switch (agendamento.servico.getTipo()){
+        switch (servico.getTipo()){
 
-            case CIRURGIA -> validaServicoDeCirurgia(agendamento);
-
+            case CIRURGIA -> validaServicoDeCirurgia(servico, profissional, recinto);
         }
 
     }
 
-    public void validaServicoDeCirurgia (Agendamento agendamento){
-        Servico servicoAgendamento = agendamento.getServico();
+    public void validaServicoDeCirurgia (Servico servico, Profissional profissional, Recinto recinto){
 
-        if (servicoAgendamento.getTipo().equals(TipoServico.CIRURGIA)){
+        if (servico.getTipo().equals(TipoServico.CIRURGIA)){
 
-            Profissional profissionalAgendamento = agendamento.getProfissional();
-
-            if (!profissionalAgendamento.getFormacao().equals(Formacao.MEDICINA_VETERINARIA))
+            if (!profissional.getFormacao().equals(Formacao.MEDICINA_VETERINARIA))
                 throw new IllegalArgumentException("O profissional selecionado não é um veterinário");
 
-            if (profissionalAgendamento instanceof Veterinario veterinario){
+            if (profissional instanceof Veterinario veterinario){
 
                 if (!veterinario.getEspecializacao().equals(Especializacao.CIRURGIAO))
                     throw new IllegalArgumentException("O veterinário selecionado não é um cirurgião");
