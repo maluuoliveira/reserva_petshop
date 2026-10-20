@@ -19,18 +19,18 @@ public class AgendamentoTest {
     Profissional clinicoGeral = Profissionais.clinicoGeral;
 
     @Test
-    void realizarAgendamentoCirurgia (){
+    void confirmarAgendamentoCirurgia (){
         Agendamento agendamentoCirurgia = new Agendamento(
                 servicoCirurgia,
                 recintoCirurgia,
                 profissionalCirurgia,
                 outroAnimal
         );
-        agendamentoCirurgia.realizarAgendamento(agendamentoCirurgia);
+        agendamentoCirurgia.confirmarAgendamento(agendamentoCirurgia);
     }
 
     @Test
-    void realizarAgendamentoCirurgiaComVetrinarioNaoCirurgiao (){
+    void confirmarAgendamentoCirurgiaComVetrinarioNaoCirurgiao (){
         Agendamento agendamentoCirurgia = new Agendamento(
                 servicoCirurgia,
                 recintoCirurgia,
@@ -38,7 +38,7 @@ public class AgendamentoTest {
                 outroAnimal
         );
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
-                agendamentoCirurgia.realizarAgendamento(agendamentoCirurgia));
+                agendamentoCirurgia.confirmarAgendamento(agendamentoCirurgia));
 
         assertEquals("O veterinário selecionado não é um cirurgião", exception.getMessage());
     }
