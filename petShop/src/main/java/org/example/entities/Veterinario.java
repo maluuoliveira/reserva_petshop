@@ -1,5 +1,6 @@
 package org.example.entities;
 
+import org.example.auxiliares.Cpf;
 import org.example.enuns.Especializacao;
 import org.example.interfaces.profissional.ContratoProfissionalFormadoInterface;
 import org.example.enuns.Formacao;
@@ -13,7 +14,7 @@ public class Veterinario extends Profissional implements ContratoProfissionalFor
     private Especializacao especializacao;
 
     public Veterinario(String nome, TipoProfissional tipoProfissional, String telefone, BigDecimal salario,
-                       Integer idade, String cpf, Formacao formacao, String crmv, Especializacao especializacao) {
+                       Integer idade, Cpf cpf, Formacao formacao, String crmv, Especializacao especializacao) {
         super(nome, tipoProfissional, telefone, salario, idade, cpf, validaFormacaoCirurgiao(formacao));
         verificaCrmvInvalido(crmv);
         this.crmv = crmv;

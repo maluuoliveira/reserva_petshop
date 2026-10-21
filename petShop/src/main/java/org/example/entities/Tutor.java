@@ -1,18 +1,18 @@
 package org.example.entities;
 
+import org.example.auxiliares.Cpf;
 import org.example.enuns.Especie;
 
 import java.util.List;
 
 public class Tutor {
     private String nome;
-    private String cpf;
+    private Cpf cpf;
     private String email;
     private String telefone;
     private List<Pet> pets;
 
-    public Tutor(String nome, String cpf, String email, String telefone, List<Pet> pets) {
-        validaCPF(cpf);
+    public Tutor(String nome, Cpf cpf, String email, String telefone, List<Pet> pets) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
@@ -28,12 +28,11 @@ public class Tutor {
         this.nome = nome;
     }
 
-    public String getCpf() {
+    public Cpf getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
-        validaCPF(cpf);
+    public void setCpf(Cpf cpf) {
         this.cpf = cpf;
     }
 
@@ -59,13 +58,6 @@ public class Tutor {
 
     public void setPets(List<Pet> pets) {
         this.pets = pets;
-    }
-
-    private void validaCPF(String cpf) {
-        String cpfFormatado = cpf.replaceAll("[^0-9]", "").trim();
-        if(cpfFormatado.length() != 11)
-            throw new IllegalArgumentException("É necessário ter 11 dígitos numéricos");
-        System.out.println("cpf validado");
     }
 
 }
