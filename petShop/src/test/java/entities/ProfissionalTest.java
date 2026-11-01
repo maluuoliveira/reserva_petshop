@@ -1,5 +1,6 @@
 package entities;
 
+import org.example.auxiliares.Cpf;
 import org.example.entities.Veterinario;
 import org.example.entities.Profissional;
 import org.example.enuns.Especializacao;
@@ -24,7 +25,7 @@ public class ProfissionalTest {
                 "35999772621",
                 new BigDecimal("2000.00"),
                 25,
-                "16572027635",
+                new Cpf("16572027635"),
                 Formacao.MEDICINA_VETERINARIA,
                 "123",
                 Especializacao.CIRURGIAO

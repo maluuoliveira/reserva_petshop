@@ -1,5 +1,6 @@
 package org.example.entities;
 
+import org.example.auxiliares.Cpf;
 import org.example.enuns.Formacao;
 import org.example.enuns.TipoProfissional;
 import org.example.interfaces.profissional.ContratoProfissional;
@@ -8,7 +9,7 @@ import java.math.BigDecimal;
 
 public abstract class Profissional implements ContratoProfissional {
     protected String nome;
-    protected String cpf;
+    protected Cpf cpf;
     protected Integer idade;
     protected String telefone;
     protected BigDecimal salario;
@@ -17,7 +18,7 @@ public abstract class Profissional implements ContratoProfissional {
 
     public static final BigDecimal SALARIO_MINIMO = new BigDecimal("1613.00");
 
-    public Profissional(String nome, TipoProfissional tipoProfissional, String telefone, BigDecimal salario, Integer idade, String cpf, Formacao formacao) {
+    public Profissional(String nome, TipoProfissional tipoProfissional, String telefone, BigDecimal salario, Integer idade, Cpf cpf, Formacao formacao) {
         this.nome = nome;
         this.tipoProfissional = tipoProfissional;
         this.telefone = telefone;
@@ -54,11 +55,11 @@ public abstract class Profissional implements ContratoProfissional {
         this.nome = nome;
     }
 
-    public String getCpf() {
+    public Cpf getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(Cpf cpf) {
         this.cpf = cpf;
     }
 
