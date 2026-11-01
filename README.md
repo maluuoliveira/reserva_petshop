@@ -55,3 +55,7 @@ java -cp target\classes org.example.Main
 - `src/main/java/org/example/enuns`: enumerações usadas pelo domínio.
 - `src/main/java/org/example/interfaces`: interfaces do projeto.
 - `src/test/java`: testes automatizados.
+
+
+## Link do gitHub
+https://github.com/maluuoliveira/reserva_petshop/
