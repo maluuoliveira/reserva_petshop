@@ -25,6 +25,8 @@ public class  Pet {
         this.tutor = tutor;
     }
 
+    public Pet (){}
+
     public String getNome() {
         return nome;
     }

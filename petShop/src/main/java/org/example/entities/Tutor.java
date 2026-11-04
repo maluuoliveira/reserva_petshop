@@ -15,10 +15,10 @@ public class Tutor {
 
     public Tutor() {}
 
-    public Tutor(String nome, Cpf cpf, String email, String telefone, List<Pet> pets) {
+    public Tutor(String nome, Cpf cpf, Email email, String telefone, List<Pet> pets) {
         this.nome = nome;
         this.cpf = cpf;
-        this.email = new Email(email);
+        this.email = email;
         this.telefone = telefone;
         this.pets = pets;
     }
