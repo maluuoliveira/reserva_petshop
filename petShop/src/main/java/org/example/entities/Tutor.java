@@ -1,6 +1,7 @@
 package org.example.entities;
 
 import org.example.auxiliares.Cpf;
+import org.example.auxiliares.Email;
 import org.example.enuns.Especie;
 
 import java.util.List;
@@ -8,14 +9,16 @@ import java.util.List;
 public class Tutor {
     private String nome;
     private Cpf cpf;
-    private String email;
+    private Email email;
     private String telefone;
     private List<Pet> pets;
+
+    public Tutor() {}
 
     public Tutor(String nome, Cpf cpf, String email, String telefone, List<Pet> pets) {
         this.nome = nome;
         this.cpf = cpf;
-        this.email = email;
+        this.email = new Email(email);
         this.telefone = telefone;
         this.pets = pets;
     }
@@ -36,12 +39,12 @@ public class Tutor {
         this.cpf = cpf;
     }
 
-    public String getEmail() {
+    public Email getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = new Email(email);
     }
 
     public String getTelefone() {
