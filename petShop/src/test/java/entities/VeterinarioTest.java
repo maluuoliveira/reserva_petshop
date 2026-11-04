@@ -1,5 +1,6 @@
 package entities;
 
+import org.example.auxiliares.Cpf;
 import org.example.entities.Veterinario;
 import org.example.entities.Profissional;
 import org.example.enuns.Especializacao;
@@ -22,7 +23,7 @@ public class VeterinarioTest {
                 "35999772621",
                 Profissional.SALARIO_MINIMO,
                 25,
-                "16572027635",
+                new Cpf("16572027635"),
                 Formacao.MEDICINA_VETERINARIA,
                 "123",
                 Especializacao.CIRURGIAO
@@ -43,7 +44,7 @@ public class VeterinarioTest {
                         "35999772621",
                         Profissional.SALARIO_MINIMO,
                         25,
-                        "16572027635",
+                        new Cpf("16572027635"),
                         Formacao.ADMINISTRACAO,
                         "123",
                         null
@@ -68,7 +69,7 @@ public class VeterinarioTest {
                         "35999772621",
                         Profissional.SALARIO_MINIMO,
                         25,
-                        "16572027635",
+                        new Cpf("16572027635"),
                         Formacao.MEDICINA_VETERINARIA,
                         null,
                         Especializacao.CIRURGIAO
